@@ -1,0 +1,8 @@
+.map-container {
+    width: 100vw;
+    height: 100vh;
+}
+
+.fixed-action-btn{
+    z-index:997;
+}

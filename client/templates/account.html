@@ -1,0 +1,11 @@
+<template name='account'>
+    {{#if currentUser}}
+        {{> accountSettings}}
+    {{else}}
+        {{> fullPageAtForm}}
+    {{/if}}
+</template>
+
+<template name="accountSettings">
+    Account Settings
+</template>

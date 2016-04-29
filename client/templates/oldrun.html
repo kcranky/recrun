@@ -1,0 +1,22 @@
+<template name="oldrunhome">
+    {{#if currentUser}}
+        {{> oldrun}}
+    {{else}}
+        {{> fullPageAtForm}}
+    {{/if}}
+</template>
+
+<template name="oldrun">
+    <ul class="collection">
+        {{#each runs }}
+            <li class="collection-item avatar">
+                <i class="material-icons circle">directions_run</i>
+                <span class="title">{{name}}</span>
+                <p>Distance: {{distance}} <br>
+                    {{formatDate date}}
+                </p>
+                <a href="/" class="secondary-content useRoute"><i class="material-icons">send</i></a>
+            </li>
+        {{/each}}
+    </ul>
+</template>

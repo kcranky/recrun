@@ -1,0 +1,36 @@
+<template name="sidenav">
+    <nav id = "navbar">
+        <a href="#" class="brand-logo center">RecRun</a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="/">New Run</a></li>
+            <li><a href="/oldrun">Old Runs</a></li>
+            <li><a href="/stats">Stats</a></li>
+            {{#if currentUser}}
+                <li><a href="/account">Account Settings</a></li>
+                <li><a class="logout" href="">Log Out</a></li>
+            {{else}}
+                <li><a class="login" href="">Log In</a></li>
+            {{/if}}
+        </ul>
+        <ul id="slide-out" class="side-nav">
+            <li><a href="/">New Run</a></li>
+            <li><a href="/oldrun">Old Runs</a></li>
+            <li><a href="/stats">Stats</a></li>
+            {{#if currentUser}}
+                <li><a href="/account">Account Settings</a></li>
+                <li><a class="logout" href="">Log Out</a></li>
+            {{else}}
+                <li><a class="login" href="">Log In</a></li>
+            {{/if}}
+        </ul>
+        <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+    </nav>
+
+    <!-- Log in Modal -->
+    <div id="loginModal" class="modal">
+        <br>
+        {{> fullPageAtForm}}
+    </div>
+
+    {{>yield}}
+</template>
