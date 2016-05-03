@@ -3,7 +3,6 @@ accounts-password@1.1.7-rc.3
 accounts-ui@1.1.8-rc.3
 accounts-ui-unstyled@1.1.11-rc.3
 allow-deny@1.0.3-rc.3
-autopublish@1.0.6-rc.3
 autoupdate@1.2.7-rc.3
 babel-compiler@6.6.1-rc.3
 babel-runtime@0.1.7-rc.3
@@ -38,7 +37,6 @@ html-tools@1.0.8-rc.3
 htmljs@1.0.8-rc.3
 http@1.1.4-rc.3
 id-map@1.0.6-rc.3
-insecure@1.0.6-rc.3
 iron:controller@1.0.12
 iron:core@1.0.11
 iron:dynamic-template@1.0.12

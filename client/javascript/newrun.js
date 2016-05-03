@@ -3,7 +3,8 @@
  */
 import './../templates/newrun.html'
 import * as mapElements from './mapElements.js'
-import * as Tasks from './../../lib/tasks.js';
+//import { Routes } from './../../server/routeManager.js';
+//import '../../../server/routeManager.js';
 
 var waypoints = [],
     origin,
@@ -19,6 +20,18 @@ Template.newrun.onCreated(function() {
     // We can use the `ready` callback to interact with the map API once the map is ready.
     GoogleMaps.ready('runMap', function(map) {
 
+        //Create info window to show distance
+        infowindow = new google.maps.InfoWindow();
+
+        //Initialise the directions service and display service
+        directionsService = new google.maps.DirectionsService();
+        directionDisplay = new google.maps.DirectionsRenderer({
+            draggable: false,
+            suppressMarkers: true
+        });
+        directionDisplay.setMap(GoogleMaps.maps.runMap.instance);
+
+
         //See if we have a session variable
         if(Session.get('oldRequest')!=null){
             if (GoogleMaps.loaded()) {
@@ -32,17 +45,6 @@ Template.newrun.onCreated(function() {
                 });
             }
         }
-
-        //Create info window to show distance
-        infowindow = new google.maps.InfoWindow();
-
-        //Initialise the directions service and display service
-        directionsService = new google.maps.DirectionsService();
-        directionDisplay = new google.maps.DirectionsRenderer({
-            draggable: false,
-            suppressMarkers: true
-        });
-        directionDisplay.setMap(GoogleMaps.maps.runMap.instance);
 
         //add custom elements
         var controls = document.createElement('div');
@@ -81,6 +83,14 @@ Template.newrun.onCreated(function() {
     });
 });
 
+Template.newrun.onRendered( function () {
+    document.getElementById("map-container").style.height = $('#map-container').height()-$('#navbar').height() + 'px';
+});
+
+window.onresize = function(e) {
+    document.getElementById("map-container").style.height = window.innerHeight -$('#navbar').height() + 'px';
+}
+
 Template.newrun.events({
     'change input[name=distance]': function (event) {
        event.preventDefault();
@@ -95,12 +105,13 @@ Template.newrun.events({
     'click #saveRunBtn': function(event) {
         var saveObj = {
             userId: Meteor.userId(),
-            name: name = $("#runName").val(),
+            name: $("#runName").val(),
             date: new Date(),
             distance: totalDistance(directionsResult.routes[0].legs),
             request: directionsResult.request
         };
-        Tasks.Routes.insert(saveObj);
+        Meteor.call('saveRun', saveObj);
+
     },
     'click #save': function () {
         if(!Meteor.userId()){
@@ -146,7 +157,7 @@ Template.newrun.helpers({
 });
 
 Template.newrun.onRendered( function () {
-    document.getElementById("map-container").style.height = $('#map-container').height()-$('#navbar').height() + 'px';
+    //document.getElementById("map-container").style.height = $('#map-container').height()-$('#navbar').height() + 'px';
 });
 
 //Get all the primary waypoint markers

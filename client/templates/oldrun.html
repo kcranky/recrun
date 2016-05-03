@@ -8,14 +8,18 @@
 
 <template name="oldrun">
     <ul class="collection">
-        {{#each runs }}
+        {{#each runs}}
             <li class="collection-item avatar">
                 <i class="material-icons circle">directions_run</i>
                 <span class="title">{{name}}</span>
-                <p>Distance: {{distance}} <br>
+                <p>Distance: {{distance}}m <br>
                     {{formatDate date}}
                 </p>
-                <a href="/" class="secondary-content useRoute"><i class="material-icons">send</i></a>
+                <div class="secondary-content">
+                    <a href='/'> <i class="material-icons useRoute">send</i></a><br>
+                    <a href='/oldrun'> <i class="material-icons delRoute">delete</i></a>
+                </div>
+
             </li>
         {{/each}}
     </ul>

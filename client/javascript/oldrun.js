@@ -1,23 +1,33 @@
 import './../templates/oldrun.html';
-import { Routes }from './../../lib/tasks.js';
+import { Meteor } from 'meteor/meteor';
 import { ReactiveDict } from 'meteor/reactive-dict';
+import { Routes } from './../dbSetup.js';
+
+Meteor.subscribe('Routes');
 
 Template.oldrun.onCreated(function bodyOnCreated(){
-   this.state = new ReactiveDict();
-    Meteor.subscribe('routes');
+    this.state = new ReactiveDict();
 });
 
 Template.oldrun.events({
     'click .useRoute': function (){
         Session.set('oldRequest', this.request);
         console.log("session created");
+    },
+    'click .delRoute': function (){
+        Meteor.call('deleteRun', this._id, function(e){
+            if (!e){
+                console.log("delete");
+            }
+        });
+
     }
 });
 
 
 Template.oldrun.helpers({
     runs(){
-        return Routes.find({ userId: Meteor.userId() });
+       return Routes.find();
     }
 });
 
@@ -50,13 +60,12 @@ Template.registerHelper('formatDate', function(d) {
 
 });
 
-Template.registerHelper('getDistance', function(r) {
-    return totalDistance(r.routes[0].legs) + "m";
-});
+//Template.registerHelper('getDistance', function(r) {
+//    return totalDistance(r.routes[0].legs) + "m";
+//});
 
 
 function totalDistance(legsArray) {
-
     var result = 0;
     for(var i=0; i<legsArray.length; i++) {
         result += legsArray[i].distance.value;
