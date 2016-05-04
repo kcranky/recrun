@@ -110,8 +110,14 @@ Template.newrun.events({
             distance: totalDistance(directionsResult.routes[0].legs),
             request: directionsResult.request
         };
-        Meteor.call('saveRun', saveObj);
-
+        Meteor.call('saveRun', saveObj, function(e, r){
+            if (!e){
+                Materialize.toast("Run successfully saved!", 4000);
+            }
+            else{
+                Materialize.toast("Error saving run. Please contact support.", 4000);
+            }
+        });
     },
     'click #save': function () {
         if(!Meteor.userId()){
@@ -123,7 +129,7 @@ Template.newrun.events({
                 $('#saveRunModal').openModal();
             }
             else {
-                Materialize.toast("Generate a route to save!", 4000);
+                Materialize.toast("Generate a route to save", 4000);
             }
         }
     },
