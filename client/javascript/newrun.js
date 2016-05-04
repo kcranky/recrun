@@ -242,7 +242,8 @@ function createRoute() {
         destination: origin.position.lat() + "," + origin.position.lng(),
         waypoints: waypoints,
         optimizeWaypoints: true,
-        travelMode: google.maps.DirectionsTravelMode.WALKING
+        travelMode: google.maps.DirectionsTravelMode.WALKING,
+        avoidHighways: true
     };
 
     //get the route from the directions service
