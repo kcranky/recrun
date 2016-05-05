@@ -19,3 +19,7 @@ Router.route('/stats', function () {
 Router.route('/account', function () {
     this.render('account');
 });
+
+Router.route('/directions', function() {
+    this.render('directions');
+});

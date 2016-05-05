@@ -3,8 +3,6 @@
  */
 import './../templates/newrun.html'
 import * as mapElements from './mapElements.js'
-//import { Routes } from './../../server/routeManager.js';
-//import '../../../server/routeManager.js';
 
 var waypoints = [],
     origin,
@@ -76,6 +74,9 @@ Template.newrun.onCreated(function() {
         //set the initial location
         origin = home;
 
+        //Disable the accept run button as there are not yet any generated runs
+        document.getElementById("directions_run").className = document.getElementById("directions_run").className + " disabled";
+
         //Disable the save route button if the user is not logged in
         if(!Meteor.userId()) {
             document.getElementById("save").className = document.getElementById("save").className + " disabled";
@@ -135,6 +136,20 @@ Template.newrun.events({
     },
     'click #settings': function () {
         $('#distanceSelectModal').openModal();
+    },
+    'click #directions_run': function(){
+        console.log("clicked accept run");
+        //add run to DB of completed runs
+        //not sure whetehr to do this now or later...?
+        //move to directions guide
+        if(Meteor.isCordova){
+            //create the intent
+            console.log("yay cordova, I think");
+        }
+        else{
+            Session.set('currentRoute', directionsResult.routes[0]);
+            Router.go('/directions');
+        }
     }
 });
 
@@ -162,9 +177,6 @@ Template.newrun.helpers({
     }
 });
 
-Template.newrun.onRendered( function () {
-    //document.getElementById("map-container").style.height = $('#map-container').height()-$('#navbar').height() + 'px';
-});
 
 //Get all the primary waypoint markers
 function route(startPoint, distance) {
@@ -265,6 +277,8 @@ function createRoute() {
                 directionDisplay.setDirections(directionsResult);
                 infowindow.setContent("Total Distance: " + dist + "m");
                 infowindow.open(GoogleMaps.maps.runMap.instance, home);
+                console.log(response);
+                document.getElementById("directions_run").className = "btn-floating green";
             };
         }
         else {

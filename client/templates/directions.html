@@ -1,0 +1,11 @@
+<template name="directions">
+    <ul class="collection">
+        {{#each instructions}}
+            <li class="collection-item avatar">
+                <i class="material-icons circle">{{directions_run}}</i>
+                <span class="title">{{{instruction}}}</span>
+                <p>{{distance}}m</p>
+            </li>
+        {{/each}}
+    </ul>
+</template>
