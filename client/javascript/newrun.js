@@ -139,16 +139,21 @@ Template.newrun.events({
     },
     'click #directions_run': function(){
         console.log("clicked accept run");
+        console.log(directionsResult);
         //add run to DB of completed runs
-        //not sure whetehr to do this now or later...?
+        //not sure whether to do this now or later...?
         //move to directions guide
         if(Meteor.isCordova){
             //create the intent
-            console.log("yay cordova, I think");
+            //window.open('geo:' + location +'?q='+location+'('+restaurant.name+')');
+            window.open('geo:?q=' + stringOut(directionsResult.request));
         }
         else{
-            Session.set('currentRoute', directionsResult.routes[0]);
-            Router.go('/directions');
+            //Session.set('currentRoute', directionsResult.routes[0]);
+            //Router.go('/directions');
+            let str = 'https://maps.google.com/maps/dir/' + stringOut(directionsResult.request);
+            console.log(str);
+            window.open(str);
         }
     }
 });
@@ -292,5 +297,25 @@ function createRoute() {
             }
         }
     });
+
+}
+
+//Build the reuest URL because we have to
+function stringOut(json){
+    let str = '';
+    str = 'origin=' + json.origin + '&destination=' + json.destination;
+    //add waypoints
+
+    str = str + '&waypoints=optimize:true|'
+    for(let i=0; i<json.waypoints.length; i++){
+        str = str + json.waypoints[i].location + '|';
+    }
+    //remove last pipe
+    str = str.substring(0, str.length - 1);
+
+    str = str + '&avoid=highways&mode=walking';
+    //str = str +'&key='
+    console.log(str);
+    return str;
 
 }
