@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/client/javascript/newrun.js" line="204" mnemonic="9" />
+    <bookmark url="file://$PROJECT_DIR$/client/javascript/newrun.js" line="207" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68bcb154-ca94-4e13-9279-ce3a70f3e0b4" name="Default" comment="">
@@ -31,14 +31,14 @@
       <file leaf-file-name="newrun.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/javascript/newrun.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="152" column="109" selection-start-line="152" selection-start-column="109" selection-end-line="152" selection-end-column="109" />
+            <state relative-caret-position="245">
+              <caret line="42" column="58" selection-start-line="42" selection-start-column="58" selection-end-line="42" selection-end-column="58" />
               <folding>
                 <element signature="e#50#85#0" expanded="true" />
-                <element signature="e#5607#6285#0" expanded="false" />
+                <element signature="e#5822#6500#0" expanded="false" />
                 <element signature="n#!!block;n#route#0" expanded="false" />
-                <element signature="e#7081#7117#0" expanded="false" />
-                <element signature="e#7155#7191#0" expanded="false" />
+                <element signature="e#7296#7332#0" expanded="false" />
+                <element signature="e#7370#7406#0" expanded="false" />
                 <element signature="n#!!block;n#destinationPoint#0" expanded="false" />
                 <element signature="n#!!block;n#totalDistance#0" expanded="false" />
               </folding>
@@ -506,12 +506,12 @@
       <workItem from="1462520168286" duration="5229000" />
       <workItem from="1462539472596" duration="200000" />
       <workItem from="1462606267772" duration="2827000" />
-      <workItem from="1462782660648" duration="9203000" />
+      <workItem from="1462782660648" duration="9554000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="210201000" />
+    <option name="totallyTimeSpent" value="210552000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -588,10 +588,10 @@
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="22" />
           <folding>
             <element signature="e#50#85#0" expanded="true" />
-            <element signature="e#5607#6285#0" expanded="false" />
+            <element signature="e#5822#6500#0" expanded="false" />
             <element signature="n#!!block;n#route#0" expanded="false" />
-            <element signature="e#7081#7117#0" expanded="false" />
-            <element signature="e#7155#7191#0" expanded="false" />
+            <element signature="e#7296#7332#0" expanded="false" />
+            <element signature="e#7370#7406#0" expanded="false" />
             <element signature="n#!!block;n#destinationPoint#0" expanded="false" />
             <element signature="n#!!block;n#totalDistance#0" expanded="false" />
           </folding>
@@ -657,10 +657,10 @@
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="22" />
           <folding>
             <element signature="e#50#85#0" expanded="true" />
-            <element signature="e#5607#6285#0" expanded="false" />
+            <element signature="e#5822#6500#0" expanded="false" />
             <element signature="n#!!block;n#route#0" expanded="false" />
-            <element signature="e#7081#7117#0" expanded="false" />
-            <element signature="e#7155#7191#0" expanded="false" />
+            <element signature="e#7296#7332#0" expanded="false" />
+            <element signature="e#7370#7406#0" expanded="false" />
             <element signature="n#!!block;n#destinationPoint#0" expanded="false" />
             <element signature="n#!!block;n#totalDistance#0" expanded="false" />
           </folding>
@@ -916,14 +916,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/javascript/newrun.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="152" column="109" selection-start-line="152" selection-start-column="109" selection-end-line="152" selection-end-column="109" />
+        <state relative-caret-position="245">
+          <caret line="42" column="58" selection-start-line="42" selection-start-column="58" selection-end-line="42" selection-end-column="58" />
           <folding>
             <element signature="e#50#85#0" expanded="true" />
-            <element signature="e#5607#6285#0" expanded="false" />
+            <element signature="e#5822#6500#0" expanded="false" />
             <element signature="n#!!block;n#route#0" expanded="false" />
-            <element signature="e#7081#7117#0" expanded="false" />
-            <element signature="e#7155#7191#0" expanded="false" />
+            <element signature="e#7296#7332#0" expanded="false" />
+            <element signature="e#7370#7406#0" expanded="false" />
             <element signature="n#!!block;n#destinationPoint#0" expanded="false" />
             <element signature="n#!!block;n#totalDistance#0" expanded="false" />
           </folding>

@@ -30,15 +30,18 @@ Template.newrun.onCreated(function() {
         directionDisplay.setMap(GoogleMaps.maps.runMap.instance);
 
 
-        //See if we have a session variable
+        //Check if we are restoring an old run
         if(Session.get('oldRequest')!=null){
             if (GoogleMaps.loaded()) {
                 directionsService.route(Session.get('oldRequest'), function (response, status) {
                     if (status == google.maps.DirectionsStatus.OK) {
+                        directionsResult = response;
                         directionDisplay.setDirections(response);
                         infowindow.setContent("Total Distance: " + totalDistance(response.routes[0].legs) + "m");
                         infowindow.open(GoogleMaps.maps.runMap.instance, home);
                         Session.set('oldRequest', null);
+                        //enable the "accept route" button
+                        document.getElementById("directions_run").className = "btn-floating green";
                     }
                 });
             }
