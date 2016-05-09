@@ -146,12 +146,17 @@ Template.newrun.events({
         if(Meteor.isCordova){
             //create the intent
             //window.open('geo:' + location +'?q='+location+'('+restaurant.name+')');
-            window.open('geo:?q=' + stringOut(directionsResult.request));
+            //window.open('geo:' + '-33,25' + '?q=' + '-33,26' + '+to:' + '-35,27');
+            let str = "http://maps.google.com/maps?f=d&source=s_d&saddr=" + strOut(directionsResult.request);
+            window.open(str, '_system');
+            console.log("called");
+
         }
         else{
             //Session.set('currentRoute', directionsResult.routes[0]);
             //Router.go('/directions');
-            let str = 'https://maps.google.com/maps/dir/' + stringOut(directionsResult.request);
+            //let str = 'https://maps.google.com/maps/dir/' + stringOut(directionsResult.request);
+            let str = "http://maps.google.com/maps?f=d&source=s_d&saddr=" + strOut(directionsResult.request);
             console.log(str);
             window.open(str);
         }
@@ -303,7 +308,7 @@ function createRoute() {
 //Build the reuest URL because we have to
 function stringOut(json){
     let str = '';
-    str = 'origin=' + json.origin + '&destination=' + json.destination;
+    str = json.origin + '?=' + json.destination;
     //add waypoints
 
     str = str + '&waypoints=optimize:true|'
@@ -318,4 +323,16 @@ function stringOut(json){
     console.log(str);
     return str;
 
+}
+
+function strOutCordova(json){
+    let str = '';
+    str = json.origin; + "?q=-33,25";
+    //add the waypoints
+    //for(let i=0; i<json.waypoints.length; i++){
+    //    str = str + json.waypoints[i].location + '+to:';
+    //}
+    //str = str+json.origin + "&dirflg=w";
+    console.log(str);
+    return str;
 }
