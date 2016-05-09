@@ -104,6 +104,7 @@ Template.newrun.events({
        }
     },
     'click #saveRunBtn': function(event) {
+        event.preventDefault();
         var saveObj = {
             userId: Meteor.userId(),
             name: $("#runName").val(),
@@ -121,6 +122,7 @@ Template.newrun.events({
         });
     },
     'click #save': function () {
+        event.preventDefault();
         if(!Meteor.userId()){
             $('#loginModal').openModal();
             Session.set('logInSave', true);
@@ -138,24 +140,17 @@ Template.newrun.events({
         $('#distanceSelectModal').openModal();
     },
     'click #directions_run': function(){
-        console.log("clicked accept run");
-        console.log(directionsResult);
+        event.preventDefault();
         //add run to DB of completed runs
         //not sure whether to do this now or later...?
         //move to directions guide
         if(Meteor.isCordova){
             //create the intent
             let str = "http://maps.google.com/maps?f=d&source=s_d&saddr=" + strOut(directionsResult.request);
-            console.log(str);
-            window.open(str, '_system');
-
+            cordova.InAppBrowser.open(str, '_system');
         }
         else{
-            //Session.set('currentRoute', directionsResult.routes[0]);
-            //Router.go('/directions');
-            //let str = 'https://maps.google.com/maps/dir/' + stringOut(directionsResult.request);
             let str = "http://maps.google.com/maps?f=d&source=s_d&saddr=" + strOut(directionsResult.request);
-            console.log(str);
             window.open(str);
         }
     }

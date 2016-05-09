@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/client/javascript/newrun.js" line="209" mnemonic="9" />
+    <bookmark url="file://$PROJECT_DIR$/client/javascript/newrun.js" line="204" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68bcb154-ca94-4e13-9279-ce3a70f3e0b4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/javascript/newrun.js" afterPath="$PROJECT_DIR$/client/javascript/newrun.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile-config.js" afterPath="$PROJECT_DIR$/mobile-config.js" />
     </list>
     <ignored path="RecRun.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,17 +31,27 @@
       <file leaf-file-name="newrun.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/javascript/newrun.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="310" column="24" selection-start-line="310" selection-start-column="24" selection-end-line="310" selection-end-column="24" />
+            <state relative-caret-position="663">
+              <caret line="152" column="109" selection-start-line="152" selection-start-column="109" selection-end-line="152" selection-end-column="109" />
               <folding>
                 <element signature="e#50#85#0" expanded="true" />
-                <element signature="e#5850#6528#0" expanded="false" />
+                <element signature="e#5607#6285#0" expanded="false" />
                 <element signature="n#!!block;n#route#0" expanded="false" />
-                <element signature="e#7324#7360#0" expanded="false" />
-                <element signature="e#7398#7434#0" expanded="false" />
+                <element signature="e#7081#7117#0" expanded="false" />
+                <element signature="e#7155#7191#0" expanded="false" />
                 <element signature="n#!!block;n#destinationPoint#0" expanded="false" />
                 <element signature="n#!!block;n#totalDistance#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mobile-config.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mobile-config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -136,7 +147,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/routes.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/imports/ui/oldrun.js" />
         <option value="$PROJECT_DIR$/public/map.js" />
@@ -186,6 +196,7 @@
         <option value="$PROJECT_DIR$/client/router.js" />
         <option value="$PROJECT_DIR$/client/javascript/directions.js" />
         <option value="$PROJECT_DIR$/client/templates/directions.html" />
+        <option value="$PROJECT_DIR$/mobile-config.js" />
         <option value="$PROJECT_DIR$/client/javascript/newrun.js" />
       </list>
     </option>
@@ -495,12 +506,12 @@
       <workItem from="1462520168286" duration="5229000" />
       <workItem from="1462539472596" duration="200000" />
       <workItem from="1462606267772" duration="2827000" />
-      <workItem from="1462782660648" duration="5461000" />
+      <workItem from="1462782660648" duration="9203000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="206459000" />
+    <option name="totallyTimeSpent" value="210201000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -549,13 +560,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/javascript/oldrun.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/templates/stats.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -584,10 +588,10 @@
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="22" />
           <folding>
             <element signature="e#50#85#0" expanded="true" />
-            <element signature="e#5850#6528#0" expanded="false" />
+            <element signature="e#5607#6285#0" expanded="false" />
             <element signature="n#!!block;n#route#0" expanded="false" />
-            <element signature="e#7324#7360#0" expanded="false" />
-            <element signature="e#7398#7434#0" expanded="false" />
+            <element signature="e#7081#7117#0" expanded="false" />
+            <element signature="e#7155#7191#0" expanded="false" />
             <element signature="n#!!block;n#destinationPoint#0" expanded="false" />
             <element signature="n#!!block;n#totalDistance#0" expanded="false" />
           </folding>
@@ -653,10 +657,10 @@
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="22" />
           <folding>
             <element signature="e#50#85#0" expanded="true" />
-            <element signature="e#5850#6528#0" expanded="false" />
+            <element signature="e#5607#6285#0" expanded="false" />
             <element signature="n#!!block;n#route#0" expanded="false" />
-            <element signature="e#7324#7360#0" expanded="false" />
-            <element signature="e#7398#7434#0" expanded="false" />
+            <element signature="e#7081#7117#0" expanded="false" />
+            <element signature="e#7155#7191#0" expanded="false" />
             <element signature="n#!!block;n#destinationPoint#0" expanded="false" />
             <element signature="n#!!block;n#totalDistance#0" expanded="false" />
           </folding>
@@ -718,13 +722,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/routes.js" />
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/map.js" />
     <entry file="file://$PROJECT_DIR$/public/maps.js" />
     <entry file="file://$PROJECT_DIR$/imports/ui/newrun.css" />
@@ -901,16 +898,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/javascript/newrun.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="310" column="24" selection-start-line="310" selection-start-column="24" selection-end-line="310" selection-end-column="24" />
+        <state relative-caret-position="663">
+          <caret line="152" column="109" selection-start-line="152" selection-start-column="109" selection-end-line="152" selection-end-column="109" />
           <folding>
             <element signature="e#50#85#0" expanded="true" />
-            <element signature="e#5850#6528#0" expanded="false" />
+            <element signature="e#5607#6285#0" expanded="false" />
             <element signature="n#!!block;n#route#0" expanded="false" />
-            <element signature="e#7324#7360#0" expanded="false" />
-            <element signature="e#7398#7434#0" expanded="false" />
+            <element signature="e#7081#7117#0" expanded="false" />
+            <element signature="e#7155#7191#0" expanded="false" />
             <element signature="n#!!block;n#destinationPoint#0" expanded="false" />
             <element signature="n#!!block;n#totalDistance#0" expanded="false" />
           </folding>

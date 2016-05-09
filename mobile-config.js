@@ -11,3 +11,7 @@ App.info({
 App.accessRule('*.google.com/*');
 App.accessRule('*.googleapis.com/*');
 App.accessRule('*.gstatic.com/*');
+
+//For navigation
+App.accessRule('*maps.google.com/*');
+App.accessRule('*maps.google.com/*');
