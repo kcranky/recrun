@@ -145,11 +145,9 @@ Template.newrun.events({
         //move to directions guide
         if(Meteor.isCordova){
             //create the intent
-            //window.open('geo:' + location +'?q='+location+'('+restaurant.name+')');
-            //window.open('geo:' + '-33,25' + '?q=' + '-33,26' + '+to:' + '-35,27');
             let str = "http://maps.google.com/maps?f=d&source=s_d&saddr=" + strOut(directionsResult.request);
+            console.log(str);
             window.open(str, '_system');
-            console.log("called");
 
         }
         else{
@@ -306,33 +304,14 @@ function createRoute() {
 }
 
 //Build the reuest URL because we have to
-function stringOut(json){
+function strOut(json){
     let str = '';
-    str = json.origin + '?=' + json.destination;
-    //add waypoints
-
-    str = str + '&waypoints=optimize:true|'
-    for(let i=0; i<json.waypoints.length; i++){
-        str = str + json.waypoints[i].location + '|';
-    }
-    //remove last pipe
-    str = str.substring(0, str.length - 1);
-
-    str = str + '&avoid=highways&mode=walking';
-    //str = str +'&key='
-    console.log(str);
-    return str;
-
-}
-
-function strOutCordova(json){
-    let str = '';
-    str = json.origin; + "?q=-33,25";
+    str = json.origin + "&daddr=";
     //add the waypoints
-    //for(let i=0; i<json.waypoints.length; i++){
-    //    str = str + json.waypoints[i].location + '+to:';
-    //}
-    //str = str+json.origin + "&dirflg=w";
+    for(let i=0; i<json.waypoints.length; i++){
+        str = str + json.waypoints[i].location + '+to:';
+    }
+    str = str+json.origin + "&dirflg=w";
     console.log(str);
     return str;
 }
