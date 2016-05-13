@@ -1,35 +1,81 @@
 <template name="newrun" id="template">
     <div class="map-container" id="map-container">
-        {{#unless geolocationError}}
-            {{> googleMap name="runMap" options=runMapOptions}}
-
-            <!-- Select Distance Modal -->
-            <div id="distanceSelectModal" class="modal">
-                <div class="modal-content">
-                    <h4>Select Distance</h4>
-                    <p>Enter the distance in Km</p>
-                    <input type="number" name="distance" value={{distance}}>
+            {{#unless geolocationError}}
+                {{> googleMap name="runMap" options=runMapOptions}}
+                <!-- Select Distance Modal -->
+                <div id="distanceSelectModal" class="modal">
+                    <div class="modal-content">
+                        <h4>Select Distance</h4>
+                        <p>Enter the distance in Km</p>
+                        <input type="number" name="distance" value={{distance}}>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="" class=" modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <a href="" class=" modal-action modal-close waves-effect waves-green btn-flat">OK</a>
-                </div>
-            </div>
 
-            <!-- Save Run Modal -->
-            <div id="saveRunModal" class="modal">
-                <div class="modal-content">
-                    <h4>Set a name for this run</h4>
-                    <input type="text" id="runName" value={{runName}}>
+                <!-- Save Run Modal -->
+                <div id="saveRunModal" class="modal">
+                    <div class="modal-content">
+                        <h4>Set a name for this run</h4>
+                        <input type="text" id="runName" value={{runName}}>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="" id="saveRunBtn" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <a href="" id="saveRunBtn" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+
+            {{else}}
+                <h3>Geolocation failed</h3>
+                <div style="text-align: center;">
+                    <p> Error: {{geolocationError}} </p>
+                    <p>Is your device's location service enabled?</p>
+                    <a id="retry" class="waves-effect waves-light btn">Try again</a>
                 </div>
-            </div>
-
-        {{else}}
-            Geolocation failed: {{geolocationError}}
-        {{/unless}}
-
+            {{/unless}}
     </div>
 </template>
 
+<template name="loading">
+    <div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-blue">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div><div class="gap-patch">
+            <div class="circle"></div>
+        </div><div class="circle-clipper right">
+            <div class="circle"></div>
+        </div>
+        </div>
+
+        <div class="spinner-layer spinner-red">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div><div class="gap-patch">
+            <div class="circle"></div>
+        </div><div class="circle-clipper right">
+            <div class="circle"></div>
+        </div>
+        </div>
+
+        <div class="spinner-layer spinner-yellow">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div><div class="gap-patch">
+            <div class="circle"></div>
+        </div><div class="circle-clipper right">
+            <div class="circle"></div>
+        </div>
+        </div>
+
+        <div class="spinner-layer spinner-green">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div><div class="gap-patch">
+            <div class="circle"></div>
+        </div><div class="circle-clipper right">
+            <div class="circle"></div>
+        </div>
+        </div>
+    </div>
+</template>

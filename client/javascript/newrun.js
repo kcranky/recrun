@@ -17,7 +17,7 @@ Template.newrun.onCreated(function() {
     Session.set('logInSave', false);
     // We can use the `ready` callback to interact with the map API once the map is ready.
     GoogleMaps.ready('runMap', function(map) {
-
+        Session.set('mapReady', true);
         //Create info window to show distance
         infowindow = new google.maps.InfoWindow();
 
@@ -156,6 +156,11 @@ Template.newrun.events({
             let str = "http://maps.google.com/maps?f=d&source=s_d&saddr=" + strOut(directionsResult.request);
             window.open(str);
         }
+    },
+    'click #retry': function(){
+        console.log("called reload");
+        document.location.reload(true);
+        Router.render('loading');
     }
 });
 

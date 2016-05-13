@@ -4,12 +4,13 @@ Router.configure({
     layoutTemplate: 'sidenav'
 });
 
-Router.route('/', function () {
+
+Router.route('/', function(){
     this.render('newrun');
 });
 
 Router.route('/oldrun', function () {
-    this.render('oldrunhome');
+    this.render('oldrun');
 });
 
 Router.route('/stats', function () {
