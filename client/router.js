@@ -4,9 +4,17 @@ Router.configure({
     layoutTemplate: 'sidenav'
 });
 
-
-Router.route('/', function(){
-    this.render('newrun');
+Router.route('/', function() {
+    this.render('newrun')
+    },
+    {
+        name: 'newrun',
+        onBeforeAction: function (){
+            if (!GoogleMaps.loaded()) {
+                this.render('loading');
+            }
+            this.next();
+        }
 });
 
 Router.route('/oldrun', function () {

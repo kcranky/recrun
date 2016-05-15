@@ -17,7 +17,7 @@ Template.newrun.onCreated(function() {
     Session.set('logInSave', false);
     // We can use the `ready` callback to interact with the map API once the map is ready.
     GoogleMaps.ready('runMap', function(map) {
-        Session.set('mapReady', true);
+        console.log("made it");
         //Create info window to show distance
         infowindow = new google.maps.InfoWindow();
 
@@ -84,11 +84,10 @@ Template.newrun.onCreated(function() {
         if(!Meteor.userId()) {
             document.getElementById("save").className = document.getElementById("save").className + " disabled";
         }
-    });
-});
 
-Template.newrun.onRendered( function () {
-    document.getElementById("map-container").style.height = $('#map-container').height()-$('#navbar').height() + 'px';
+        //Resize the map
+        document.getElementById("map-container").style.height = $('#map-container').height()-$('#navbar').height() + 'px';
+    });
 });
 
 window.onresize = function(e) {
@@ -158,7 +157,6 @@ Template.newrun.events({
         }
     },
     'click #retry': function(){
-        console.log("called reload");
         document.location.reload(true);
         Router.render('loading');
     }
@@ -185,6 +183,10 @@ Template.newrun.helpers({
                 zoomControl: false
             };
         }
+    },
+    mapReady: function(){
+        console.log("Checking if map is ready");
+        return GoogleMaps.loaded();
     }
 });
 

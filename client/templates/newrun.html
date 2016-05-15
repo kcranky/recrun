@@ -1,5 +1,6 @@
 <template name="newrun" id="template">
-    <div class="map-container" id="map-container">
+    {{#if mapReady}}
+        <div class="map-container" id="map-container">
             {{#unless geolocationError}}
                 {{> googleMap name="runMap" options=runMapOptions}}
                 <!-- Select Distance Modal -->
@@ -33,11 +34,55 @@
                     <a id="retry" class="waves-effect waves-light btn">Try again</a>
                 </div>
             {{/unless}}
-    </div>
+        </div>
+    {{else}}
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-blue">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+
+            <div class="spinner-layer spinner-red">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+
+            <div class="spinner-layer spinner-yellow">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+
+            <div class="spinner-layer spinner-green">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+        </div>
+    {{/if}}
 </template>
 
+
 <template name="loading">
-    <div class="preloader-wrapper big active">
+    <div class="preloader-wrapper big active" style="text-align: center;">
         <div class="spinner-layer spinner-blue">
             <div class="circle-clipper left">
                 <div class="circle"></div>

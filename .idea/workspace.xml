@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/client/javascript/newrun.js" line="212" mnemonic="9" />
+    <bookmark url="file://$PROJECT_DIR$/client/javascript/newrun.js" line="214" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68bcb154-ca94-4e13-9279-ce3a70f3e0b4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/javascript/main.js" afterPath="$PROJECT_DIR$/client/javascript/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/javascript/newrun.js" afterPath="$PROJECT_DIR$/client/javascript/newrun.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/router.js" afterPath="$PROJECT_DIR$/client/router.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/newrun.html" afterPath="$PROJECT_DIR$/client/templates/newrun.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/sidenav.html" afterPath="$PROJECT_DIR$/client/templates/sidenav.html" />
     </list>
     <ignored path="RecRun.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,19 +33,21 @@
       <file leaf-file-name="router.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/router.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="12" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
+            <state relative-caret-position="255">
+              <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sidenav.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/templates/sidenav.html">
+      <file leaf-file-name="newrun.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/templates/newrun.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="671">
+              <caret line="84" column="72" selection-start-line="84" selection-start-column="72" selection-end-line="84" selection-end-column="72" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#template#1;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -53,13 +55,14 @@
       <file leaf-file-name="newrun.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/javascript/newrun.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="213" column="0" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
+            <state relative-caret-position="294">
+              <caret line="188" column="35" selection-start-line="188" selection-start-column="35" selection-end-line="188" selection-end-column="35" />
               <folding>
                 <element signature="e#50#85#0" expanded="true" />
+                <element signature="e#3729#5921#0" expanded="false" />
                 <element signature="n#!!block;n#route#0" expanded="false" />
-                <element signature="e#7485#7521#0" expanded="false" />
-                <element signature="e#7559#7595#0" expanded="false" />
+                <element signature="e#7541#7577#0" expanded="false" />
+                <element signature="e#7615#7651#0" expanded="false" />
                 <element signature="n#!!block;n#destinationPoint#0" expanded="false" />
                 <element signature="n#!!block;n#totalDistance#0" expanded="false" />
               </folding>
@@ -67,14 +70,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="newrun.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/templates/newrun.html">
+      <file leaf-file-name="startup.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/javascript/startup.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="731">
-              <caret line="43" column="41" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
-              <folding>
-                <element signature="n#style#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="17">
+              <caret line="1" column="27" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/javascript/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -128,7 +139,6 @@
         <option value="$PROJECT_DIR$/lib/startup.js" />
         <option value="$PROJECT_DIR$/lib/tasks.js" />
         <option value="$PROJECT_DIR$/lib/routeManager.js" />
-        <option value="$PROJECT_DIR$/client/javascript/main.js" />
         <option value="$PROJECT_DIR$/server/dbSetup.js" />
         <option value="$PROJECT_DIR$/server/routeManager.js" />
         <option value="$PROJECT_DIR$/server/imports/dbSetup.js" />
@@ -143,10 +153,11 @@
         <option value="$PROJECT_DIR$/client/javascript/directions.js" />
         <option value="$PROJECT_DIR$/client/templates/directions.html" />
         <option value="$PROJECT_DIR$/mobile-config.js" />
-        <option value="$PROJECT_DIR$/client/router.js" />
-        <option value="$PROJECT_DIR$/client/javascript/newrun.js" />
-        <option value="$PROJECT_DIR$/client/templates/newrun.html" />
         <option value="$PROJECT_DIR$/client/templates/sidenav.html" />
+        <option value="$PROJECT_DIR$/client/javascript/main.js" />
+        <option value="$PROJECT_DIR$/client/javascript/newrun.js" />
+        <option value="$PROJECT_DIR$/client/router.js" />
+        <option value="$PROJECT_DIR$/client/templates/newrun.html" />
       </list>
     </option>
   </component>
@@ -189,6 +200,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -277,8 +290,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -431,12 +442,13 @@
       <workItem from="1463040738083" duration="753000" />
       <workItem from="1463052571704" duration="32000" />
       <workItem from="1463125559590" duration="1294000" />
-      <workItem from="1463177384197" duration="3965000" />
+      <workItem from="1463177384197" duration="4596000" />
+      <workItem from="1463223876206" duration="2863000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="225979000" />
+    <option name="totallyTimeSpent" value="229473000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -504,7 +516,7 @@
         <state relative-caret-position="34">
           <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
           <folding>
-            <element signature="n#style#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#template#1;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -515,9 +527,10 @@
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="22" />
           <folding>
             <element signature="e#50#85#0" expanded="true" />
+            <element signature="e#3729#5921#0" expanded="false" />
             <element signature="n#!!block;n#route#0" expanded="false" />
-            <element signature="e#7485#7521#0" expanded="false" />
-            <element signature="e#7559#7595#0" expanded="false" />
+            <element signature="e#7541#7577#0" expanded="false" />
+            <element signature="e#7615#7651#0" expanded="false" />
             <element signature="n#!!block;n#destinationPoint#0" expanded="false" />
             <element signature="n#!!block;n#totalDistance#0" expanded="false" />
           </folding>
@@ -574,7 +587,7 @@
         <state relative-caret-position="34">
           <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
           <folding>
-            <element signature="n#style#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#template#1;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -585,9 +598,10 @@
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="22" />
           <folding>
             <element signature="e#50#85#0" expanded="true" />
+            <element signature="e#3729#5921#0" expanded="false" />
             <element signature="n#!!block;n#route#0" expanded="false" />
-            <element signature="e#7485#7521#0" expanded="false" />
-            <element signature="e#7559#7595#0" expanded="false" />
+            <element signature="e#7541#7577#0" expanded="false" />
+            <element signature="e#7615#7651#0" expanded="false" />
             <element signature="n#!!block;n#destinationPoint#0" expanded="false" />
             <element signature="n#!!block;n#totalDistance#0" expanded="false" />
           </folding>
@@ -637,7 +651,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#template#1;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -715,13 +729,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/javascript/startup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/templates/account.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -761,13 +768,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/javascript/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="50" selection-start-line="1" selection-start-column="50" selection-end-line="1" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -812,25 +812,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/templates/newrun.html">
+    <entry file="file://$PROJECT_DIR$/client/templates/sidenav.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="43" column="41" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
-          <folding>
-            <element signature="n#style#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="561">
+          <caret line="33" column="11" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/javascript/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/javascript/startup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="27" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/javascript/newrun.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="213" column="0" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
+        <state relative-caret-position="294">
+          <caret line="188" column="35" selection-start-line="188" selection-start-column="35" selection-end-line="188" selection-end-column="35" />
           <folding>
             <element signature="e#50#85#0" expanded="true" />
+            <element signature="e#3729#5921#0" expanded="false" />
             <element signature="n#!!block;n#route#0" expanded="false" />
-            <element signature="e#7485#7521#0" expanded="false" />
-            <element signature="e#7559#7595#0" expanded="false" />
+            <element signature="e#7541#7577#0" expanded="false" />
+            <element signature="e#7615#7651#0" expanded="false" />
             <element signature="n#!!block;n#destinationPoint#0" expanded="false" />
             <element signature="n#!!block;n#totalDistance#0" expanded="false" />
           </folding>
@@ -839,17 +854,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/router.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="12" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
+        <state relative-caret-position="255">
+          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/templates/sidenav.html">
+    <entry file="file://$PROJECT_DIR$/client/templates/newrun.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="671">
+          <caret line="84" column="72" selection-start-line="84" selection-start-column="72" selection-end-line="84" selection-end-column="72" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#template#1;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
