@@ -1,7 +1,7 @@
 App.info({
-  id: 'com.arbdev.keegan.recrun',
-  name: 'RecRun',
-  description: 'Plan and time running routes',
+  id: 'com.arbdev.keegan.joggr',
+  name: 'joggr',
+  description: 'Plan new routes for running, cycling and walking',
   author: 'ArbDev',
   email: 'NA',
   website: 'NA'

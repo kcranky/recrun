@@ -1,4 +1,3 @@
-import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 
 import './../templates/sidenav.html';
@@ -10,7 +9,7 @@ Template.sidenav.onRendered( function () {
     });
 });
 
-Template.sidenav.events({
+    Template.sidenav.events({
     "click .logout": function() {
         AccountsTemplates.logout();
         if(Router.current().route.path() == '/') {

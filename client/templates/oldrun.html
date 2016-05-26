@@ -2,7 +2,7 @@
     {{#if currentUser}}
         {{> oldrun}}
     {{else}}
-        {{> fullPageAtForm}}
+        {{> atForm}}
     {{/if}}
 </template>
 
@@ -21,6 +21,12 @@
                 </div>
 
             </li>
+        {{else}}
+            <div style="text-align: center">
+                <h3>Nothing to show here!</h3>
+                <p>Try saving some routes from the <a href="/">new route</a> page</p>
+
+            </div>
         {{/each}}
     </ul>
 </template>

@@ -12,12 +12,11 @@ Template.oldrun.onCreated(function bodyOnCreated(){
 Template.oldrun.events({
     'click .useRoute': function (){
         Session.set('oldRequest', this.request);
-        console.log("session created");
     },
     'click .delRoute': function (){
         Meteor.call('deleteRun', this._id, function(e){
             if (!e){
-                console.log("delete");
+                Materialize.toast("Route deleted.", 4000);
             }
         });
 
@@ -60,9 +59,6 @@ Template.registerHelper('formatDate', function(d) {
 
 });
 
-//Template.registerHelper('getDistance', function(r) {
-//    return totalDistance(r.routes[0].legs) + "m";
-//});
 
 
 function totalDistance(legsArray) {

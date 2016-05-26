@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/RecRun.iml" filepath="$PROJECT_DIR$/.idea/RecRun.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/recrun.iml" filepath="$PROJECT_DIR$/.idea/recrun.iml" />
     </modules>
   </component>
 </project>

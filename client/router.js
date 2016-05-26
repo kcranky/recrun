@@ -18,7 +18,7 @@ Router.route('/', function() {
 });
 
 Router.route('/oldrun', function () {
-    this.render('oldrun');
+    this.render('oldrunhome');
 });
 
 Router.route('/stats', function () {
@@ -29,6 +29,11 @@ Router.route('/account', function () {
     this.render('account');
 });
 
+/*
+
+Disabled - use gMaps instead
+
 Router.route('/directions', function() {
     this.render('directions');
 });
+*/

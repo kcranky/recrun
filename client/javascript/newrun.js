@@ -17,7 +17,6 @@ Template.newrun.onCreated(function() {
     Session.set('logInSave', false);
     // We can use the `ready` callback to interact with the map API once the map is ready.
     GoogleMaps.ready('runMap', function(map) {
-        console.log("made it");
         //Create info window to show distance
         infowindow = new google.maps.InfoWindow();
 
@@ -185,7 +184,6 @@ Template.newrun.helpers({
         }
     },
     mapReady: function(){
-        console.log("Checking if map is ready");
         return GoogleMaps.loaded();
     }
 });
@@ -290,12 +288,10 @@ function createRoute() {
                 directionDisplay.setDirections(directionsResult);
                 infowindow.setContent("Total Distance: " + dist + "m");
                 infowindow.open(GoogleMaps.maps.runMap.instance, home);
-                console.log(response);
                 document.getElementById("directions_run").className = "btn-floating green";
             };
         }
         else {
-            console.log(status);
             //if we managed to get a successful request, use it
             if (directionsResult) {
                 directionDisplay.setMap(GoogleMaps.maps.runMap.instance);
@@ -317,6 +313,5 @@ function strOut(json){
         str = str + json.waypoints[i].location + '+to:';
     }
     str = str+json.origin + "&dirflg=w";
-    console.log(str);
     return str;
 }
