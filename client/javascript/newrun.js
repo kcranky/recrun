@@ -304,7 +304,11 @@ function createRoute() {
 
 }
 
-//Build the reuest URL because we have to
+/**
+ * Build the request URL to open in external maps service
+ * @param json
+ * @returns {string}
+ */
 function strOut(json){
     let str = '';
     str = json.origin + "&daddr=";

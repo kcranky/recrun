@@ -1,11 +1,9 @@
 import "./../templates/account.html"
 
-//Account management
-var myPostLogout = function(){
-    //example redirect after logout
-    Materialize.toast('Successfully logged out!', 2500);
-};
 
+/**
+ * Used when logging in
+ */
 var myPostLogin = function(){
     $('#loginModal').closeModal();
 
@@ -21,6 +19,16 @@ var myPostLogin = function(){
     Materialize.toast('Successfully logged in!', 2500);
 };
 
+/**
+ * Just a simple toast to notify users they have been logged out
+ */
+var myPostLogout = function(){
+    Materialize.toast('Successfully logged out!', 2500);
+};
+
+/**
+ * Configure the hooks to user
+ */
 AccountsTemplates.configure({
     onLogoutHook: myPostLogout,
     onSubmitHook: myPostLogin

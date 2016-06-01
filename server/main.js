@@ -2,13 +2,14 @@ import { Meteor } from 'meteor/meteor';
 import { Routes } from './imports/dbSetup';
 
 Meteor.methods({
-
+    /**
+     * Allows a user to save a route
+     * @param saveObj
+     */
     'saveRun': function(saveObj){
         let r = null;
         Routes.insert(saveObj, function(error, result){
             if(error){
-                console.log ( error );
-                console.log("Cannot save route. Please contact support.");
                 return error;
             }
             if(result){
@@ -21,12 +22,13 @@ Meteor.methods({
      * @param dId : the id of the document to delete
      */
     'deleteRun': function(dId){
-        console.log("Route deleted");
         return Routes.remove({_id:dId});
     }
 });
 
-
+/**
+ * Publishes the routes for the user to access
+ */
 Meteor.publish('Routes', function(){
     return Routes.find({userId: this.userId});
 });
