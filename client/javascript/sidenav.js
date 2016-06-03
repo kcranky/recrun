@@ -10,7 +10,11 @@ Template.sidenav.onRendered( function () {
 
     Template.sidenav.events({
     "click .logout": function() {
-        AccountsTemplates.logout();
+        Meteor.logout(function(error) {
+            if(!error){
+                Materialize.toast("Successfully logged out", 4000);
+            }
+        });
         if(Router.current().route.path() == '/') {
             document.getElementById("save").className = document.getElementById("save").className + " disabled";
         }
