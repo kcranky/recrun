@@ -45,6 +45,9 @@ Template.newrun.onCreated(function() {
                 });
             }
         }
+        else{
+            directionsResult = null;
+        }
 
         //add custom elements
         var controls = document.createElement('div');
