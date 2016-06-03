@@ -15,7 +15,4 @@ Template.sidenav.onRendered( function () {
             document.getElementById("save").className = document.getElementById("save").className + " disabled";
         }
     },
-    "click .login": function() {
-        $('#loginModal').openModal();
-    }
 });

@@ -10,6 +10,7 @@ Router.route('/', function() {
     {
         name: 'newrun',
         onBeforeAction: function (){
+
             if (!GoogleMaps.loaded()) {
                 this.render('loading');
             }
@@ -17,23 +18,35 @@ Router.route('/', function() {
         }
 });
 
-Router.route('/oldrun', function () {
-    this.render('oldrunhome');
-});
-
-Router.route('/stats', function () {
-    this.render('stats');
-});
+Router.route('/oldrun', function() {
+        this.render('oldrun')
+    }, {
+        name:'oldrun',
+        onBeforeAction: function() {
+            if (!Meteor.userId()){
+                Router.go('login');
+            }
+            this.next();
+        }
+    }
+);
 
 Router.route('/account', function () {
     this.render('account');
 });
 
-/*
+Router.route('/login', function() {
+    this.render('login')
+},
+    {
+        name: 'login'
+    }
+);
 
-Disabled - use gMaps instead
-
-Router.route('/directions', function() {
-    this.render('directions');
-});
-*/
+Router.route('/register', function() {
+        this.render('register')
+    },
+    {
+        name: 'register'
+    }
+);

@@ -1,6 +1,5 @@
 import "./../templates/account.html"
 
-
 /**
  * Used when logging in
  */

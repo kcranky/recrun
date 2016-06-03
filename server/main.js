@@ -18,7 +18,7 @@ Meteor.methods({
         });
     },
     /**
-     * Deltes a particular Run from the DB
+     * Deletes a particular Run from the DB
      * @param dId : the id of the document to delete
      */
     'deleteRun': function(dId){

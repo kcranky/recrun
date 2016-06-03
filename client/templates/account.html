@@ -1,11 +1,70 @@
-<template name='account'>
-    {{#if currentUser}}
-        {{> accountSettings}}
-    {{else}}
-        {{> fullPageAtForm}}
-    {{/if}}
+<template name="login">
+    <div class="container" style="margin: 0 auto;">
+        <div class="col s12 home-heading" style="text-align: center;">
+            <h5>Log in</h5>
+        </div>
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="username" type="text" class="validate" required>
+                    <label for="username">Username</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="password" type="password" class="validate" required>
+                    <label for="password">Password</label>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <a id="Register" class="waves-effect waves-light btn light-blue accent-3">Register</a>
+            </div>
+        </form>
+
+        <br>
+
+        <div style="text-align: center" class="row">
+            <h6 class="grey-text">Don't have an account? <a href="{{pathFor route='register'}}">Register</a></h6>
+        </div>
+
+    </div>
 </template>
 
-<template name="accountSettings">
-    Account Settings
+<template name="register">
+    <div class="container" style="margin: 0 auto;">
+        <div class="col s12 home-heading" style="text-align: center;">
+            <h5>Create an account</h5>
+        </div>
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="username" type="text" class="validate" required>
+                    <label for="username">Username</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 m6 l6">
+                    <input id="password" type="password" class="validate" required>
+                    <label for="password">Password</label>
+                </div>
+                <div class="input-field col s12 m6 l6">
+                    <input id="cPassword" type="password" class="validate" required>
+                    <label for="cPassword">Confirm Password</label>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <a id="Register" class="waves-effect waves-light btn light-blue accent-3">Register</a>
+            </div>
+        </form>
+
+        <br>
+
+        <div style="text-align: center" class="row">
+            <h6 class="grey-text">Already have an account? <a href="{{pathFor route='login'}}">Log in</a></h6>
+        </div>
+
+    </div>
 </template>
