@@ -14,7 +14,7 @@ var waypoints = [],
     infowindow;
 
 Template.newrun.onCreated(function() {
-    Session.set('logInSave', false);
+    //Session.set('logInSave', false);
     // We can use the `ready` callback to interact with the map API once the map is ready.
     GoogleMaps.ready('runMap', function(map) {
         //Create info window to show distance
@@ -28,7 +28,8 @@ Template.newrun.onCreated(function() {
         });
         directionDisplay.setMap(GoogleMaps.maps.runMap.instance);
 
-
+        //Session.set('routeToSave', directionsResult);
+        
         //Check if we are restoring an old run
         if(Session.get('oldRequest')!=null){
             if (GoogleMaps.loaded()) {
@@ -92,6 +93,16 @@ Template.newrun.onCreated(function() {
     });
 });
 
+Template.newrun.onRendered(function(){
+    $('.modal-trigger').leanModal({
+        dismissible: true
+    });
+    if(Session.get('logInSave')==true){
+        $('#saveRunModal').openModal();
+        Session.set('logInSave', false);
+    }
+});
+
 window.onresize = function(e) {
     document.getElementById("map-container").style.height = window.innerHeight -$('#navbar').height() + 'px';
 }
@@ -113,12 +124,15 @@ Template.newrun.events({
             userId: Meteor.userId(),
             name: $("#runName").val(),
             date: new Date(),
-            distance: totalDistance(directionsResult.routes[0].legs),
-            request: directionsResult.request
+            distance: totalDistance(Session.get('routeToSave').routes[0].legs),
+            request: Session.get('routeToSave').request
         };
         Meteor.call('saveRun', saveObj, function(e, r){
             if (!e){
                 Materialize.toast("Run successfully saved!", 4000);
+                Router.go('/oldrun');
+                Session.set('logInSave', false);
+                Session.set('routeToSave', null);
             }
             else{
                 Materialize.toast("Error saving run. Please contact support.", 4000);
@@ -127,17 +141,20 @@ Template.newrun.events({
     },
     'click #save': function () {
         event.preventDefault();
+        if(directionsResult == null){
+            Materialize.toast("Generate a route to save", 4000);
+            return;
+        }
         if(!Meteor.userId()){
-            $('#loginModal').openModal();
+            Router.go('/login');
             Session.set('logInSave', true);
+            Session.set('routeToSave', directionsResult);
+        }
+        else if (directionsResult != undefined){
+            $('#saveRunModal').openModal();
         }
         else {
-            if (directionsResult != undefined){
-                $('#saveRunModal').openModal();
-            }
-            else {
-                Materialize.toast("Generate a route to save", 4000);
-            }
+            Materialize.toast("Generate a route to save", 4000);
         }
     },
     'click #settings': function () {

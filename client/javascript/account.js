@@ -4,14 +4,11 @@ import "./../templates/account.html"
  * Used when logging in
  */
 let postLogin = function(){
-    if(Router.current().route.path() == '/'){
+    if(Router.current().route.path() == '/') {
         document.getElementById("save").className = "btn-floating green";
         //check if session variable is active
-        if(Session.get('logInSave')==true){
-            $('#saveRunModal').openModal();
-            Session.set('logInSave', false);
-        }
     }
+    Router.go('/');
     Materialize.toast('Successfully logged in!', 2500);
 };
 
@@ -45,7 +42,6 @@ Template.register.events({
                     Materialize.toast(error.reason, 4000);
                 }
                 else{
-                    Router.go('/');
                     postLogin();
                 }
             });
@@ -66,8 +62,7 @@ Template.login.events({
 
         Meteor.loginWithPassword(id, pw, function(error){
             if(!error){
-                //Need to add functionality to reroute to place of origin - ie before user requested to log in
-                Router.go("/");
+                console.log('postlogin');
                 postLogin();
             }
             else{
