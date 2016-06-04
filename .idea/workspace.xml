@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68bcb154-ca94-4e13-9279-ce3a70f3e0b4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/javascript/newrun.js" afterPath="$PROJECT_DIR$/client/javascript/newrun.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.meteor/cordova-plugins" afterPath="$PROJECT_DIR$/.meteor/cordova-plugins" />
     </list>
     <ignored path="RecRun.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -487,12 +486,12 @@
       <workItem from="1463679853778" duration="3220000" />
       <workItem from="1464254082563" duration="1975000" />
       <workItem from="1464781398136" duration="813000" />
-      <workItem from="1464942269282" duration="838000" />
+      <workItem from="1464942269282" duration="1436000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="242523000" />
+    <option name="totallyTimeSpent" value="243121000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
