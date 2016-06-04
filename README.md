@@ -1,6 +1,8 @@
 # joggr
 A meteor app for generating and storing running/cycling routes.
 
+The latest working version is available for use at [joggr.xyz](https://joggr.xyz)
+
 The app gets your location, and, based on your requested distance, generates random routes starting and ending at your current location. It is possible to then store the routes, and accept the route. 
 
 When the route is accepted in the web app, the user is taken to maps.google.com and given the directions, as they would in a regular scenario when looking for directions.
