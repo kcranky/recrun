@@ -30,5 +30,13 @@ Meteor.methods({
  * Publishes the routes for the user to access
  */
 Meteor.publish('Routes', function(){
-    return Routes.find({userId: this.userId});
+    Meteor.bindEnvironment(function(error, result){
+        if(Meteor.user()){
+            return Routes.find({userId: this.userId});
+        }
+        else{
+            return this.ready();
+        }
+    });
+
 });
