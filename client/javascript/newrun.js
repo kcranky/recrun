@@ -4,6 +4,8 @@
 import './../templates/newrun.html'
 import * as mapElements from './mapElements.js'
 
+import * as loader from './loader';
+
 var waypoints = [],
     origin,
     directionDisplay,
@@ -268,6 +270,7 @@ function totalDistance(legsArray) {
 }
 
 function createRoute() {
+    loader.showLoader();
     directionDisplay.set('directions', null);
     directionDisplay.setMap(null);
 
@@ -289,6 +292,8 @@ function createRoute() {
         avoidHighways: true
     };
 
+
+
     //get the route from the directions service
     directionsService.route(request, function (response, status) {
         if (status == google.maps.DirectionsStatus.OK) {
@@ -309,6 +314,7 @@ function createRoute() {
                 infowindow.setContent("Total Distance: " + dist + "m");
                 infowindow.open(GoogleMaps.maps.runMap.instance, home);
                 document.getElementById("directions_run").className = "btn-floating green";
+                loader.hideLoader();
             };
         }
         else {
@@ -318,6 +324,7 @@ function createRoute() {
                 directionDisplay.setDirections(directionsResult);
                 infowindow.setContent("Total Distance: " + totalDistance(directionsResult.routes[0].legs) + "m");
                 infowindow.open(GoogleMaps.maps.runMap.instance, home);
+                loader.hideLoader();
             }
         }
     });
