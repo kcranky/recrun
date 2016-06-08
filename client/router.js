@@ -31,9 +31,13 @@ Router.route('/oldrun', function() {
     }
 );
 
-Router.route('/account', function () {
-    this.render('account');
-});
+Router.route('/about', function() {
+        this.render('about')
+    },
+    {
+        name: 'about'
+    }
+);
 
 Router.route('/login', function() {
     this.render('login')

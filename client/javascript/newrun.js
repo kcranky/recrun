@@ -4,6 +4,8 @@
 import './../templates/newrun.html'
 import * as mapElements from './mapElements.js'
 
+import * as loader from './loader';
+
 var waypoints = [],
     origin,
     directionDisplay,
@@ -14,6 +16,7 @@ var waypoints = [],
     infowindow;
 
 Template.newrun.onCreated(function() {
+    loader.showLoader();
     //Session.set('logInSave', false);
     // We can use the `ready` callback to interact with the map API once the map is ready.
     GoogleMaps.ready('runMap', function(map) {
@@ -32,6 +35,7 @@ Template.newrun.onCreated(function() {
         
         //Check if we are restoring an old run
         if(Session.get('oldRequest')!=null){
+
             if (GoogleMaps.loaded()) {
                 directionsService.route(Session.get('oldRequest'), function (response, status) {
                     if (status == google.maps.DirectionsStatus.OK) {
@@ -45,6 +49,7 @@ Template.newrun.onCreated(function() {
                     }
                 });
             }
+
         }
         else{
             directionsResult = null;
@@ -90,6 +95,8 @@ Template.newrun.onCreated(function() {
 
         //Resize the map
         document.getElementById("map-container").style.height = $('#map-container').height()-$('#navbar').height() + 'px';
+
+        loader.hideLoader();
     });
 });
 
@@ -268,6 +275,7 @@ function totalDistance(legsArray) {
 }
 
 function createRoute() {
+    loader.showLoader();
     directionDisplay.set('directions', null);
     directionDisplay.setMap(null);
 
@@ -289,6 +297,8 @@ function createRoute() {
         avoidHighways: true
     };
 
+
+
     //get the route from the directions service
     directionsService.route(request, function (response, status) {
         if (status == google.maps.DirectionsStatus.OK) {
@@ -309,6 +319,7 @@ function createRoute() {
                 infowindow.setContent("Total Distance: " + dist + "m");
                 infowindow.open(GoogleMaps.maps.runMap.instance, home);
                 document.getElementById("directions_run").className = "btn-floating green";
+                loader.hideLoader();
             };
         }
         else {
@@ -318,6 +329,7 @@ function createRoute() {
                 directionDisplay.setDirections(directionsResult);
                 infowindow.setContent("Total Distance: " + totalDistance(directionsResult.routes[0].legs) + "m");
                 infowindow.open(GoogleMaps.maps.runMap.instance, home);
+                loader.hideLoader();
             }
         }
     });
