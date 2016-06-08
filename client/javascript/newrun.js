@@ -16,6 +16,7 @@ var waypoints = [],
     infowindow;
 
 Template.newrun.onCreated(function() {
+    loader.showLoader();
     //Session.set('logInSave', false);
     // We can use the `ready` callback to interact with the map API once the map is ready.
     GoogleMaps.ready('runMap', function(map) {
@@ -34,6 +35,7 @@ Template.newrun.onCreated(function() {
         
         //Check if we are restoring an old run
         if(Session.get('oldRequest')!=null){
+
             if (GoogleMaps.loaded()) {
                 directionsService.route(Session.get('oldRequest'), function (response, status) {
                     if (status == google.maps.DirectionsStatus.OK) {
@@ -47,6 +49,7 @@ Template.newrun.onCreated(function() {
                     }
                 });
             }
+
         }
         else{
             directionsResult = null;
@@ -92,6 +95,8 @@ Template.newrun.onCreated(function() {
 
         //Resize the map
         document.getElementById("map-container").style.height = $('#map-container').height()-$('#navbar').height() + 'px';
+
+        loader.hideLoader();
     });
 });
 
