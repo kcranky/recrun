@@ -1,16 +1,14 @@
 /**
- * Created by LittlePanda on 06 Apr 2016.
+ * Created by Keegan Crankshaw on 06 Apr 2016.
  */
 import './../templates/newrun.html'
 import * as mapElements from './mapElements.js'
-
 import * as loader from './loader';
 
 var waypoints = [],
-    origin,
     directionDisplay,
-    home,
     directionsService,
+    home,
     distance = 5,
     directionsResult,
     infowindow;
@@ -18,7 +16,6 @@ var waypoints = [],
 Template.newrun.onCreated(function() {
     loader.showLoader();
     //Session.set('logInSave', false);
-    // We can use the `ready` callback to interact with the map API once the map is ready.
     GoogleMaps.ready('runMap', function(map) {
         //Create info window to show distance
         infowindow = new google.maps.InfoWindow();
@@ -29,37 +26,49 @@ Template.newrun.onCreated(function() {
             suppressMarkers: true
         });
         directionDisplay.setMap(GoogleMaps.maps.runMap.instance);
-        
+
+        //Initialize the marker
+        var latLng = Geolocation.latLng();
+        home = new google.maps.Marker({
+            position: new google.maps.LatLng(latLng.lat, latLng.lng),
+            map: GoogleMaps.maps.runMap.instance
+        });
+
+        var moveListener = GoogleMaps.maps.runMap.instance.addListener('drag', function() {
+            infowindow.close();
+            home.setPosition(GoogleMaps.maps.runMap.instance.getCenter());
+        });
+
         //Check if we are restoring an old run
         if(Session.get('oldRequest')!=null){
-
             if (GoogleMaps.loaded()) {
                 directionsService.route(Session.get('oldRequest'), function (response, status) {
                     if (status == google.maps.DirectionsStatus.OK) {
                         directionsResult = response;
                         directionDisplay.setDirections(response);
                         infowindow.setContent("Total Distance: " + totalDistance(response.routes[0].legs) + "m");
+                        document.getElementById("directions_run").className = "btn-floating green";
+                        let latLngStr = Session.get('oldRequest').origin;
+                        let lat = latLngStr.substring(0, latLngStr.indexOf(','));
+                        let lng = latLngStr.substring(latLngStr.indexOf(',')+1);
+                        home.setPosition(new google.maps.LatLng(lat, lng));
                         infowindow.open(GoogleMaps.maps.runMap.instance, home);
                         Session.set('oldRequest', null);
-                        //enable the "accept route" button
-                        document.getElementById("directions_run").className = "btn-floating green";
+                        moveListener.remove();
                     }
                 });
             }
-
         }
         else{
             directionsResult = null;
         }
 
         //add custom elements
-        var controls = document.createElement('div');
+        let controls = document.createElement('div');
 
         //Create the "generate Map" button
         var genControl = new mapElements.genCtrl(controls, map, 'Generate new route', function () {
             moveListener.remove();
-            console.log(map.instance.center_changed);
-            console.log(GoogleMaps.maps);
             infowindow.close();
             waypoints = [];
             directionDisplay.set('directions', null);
@@ -67,27 +76,12 @@ Template.newrun.onCreated(function() {
             createRoute();
         });
 
-        var routeSave = document.createElement('div');
-        var saveBtn = new mapElements.saveRoute(routeSave, map);
+        let routeSave = document.createElement('div');
+        let saveBtn = new mapElements.saveRoute(routeSave, map);
 
         //Push the main control div to the map
         map.instance.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(controls);
         map.instance.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(routeSave);
-
-        // Add a marker to the map once it's ready
-        var latLng = Geolocation.latLng();
-        home = new google.maps.Marker({
-            position: new google.maps.LatLng(latLng.lat, latLng.lng),
-            map: GoogleMaps.maps.runMap.instance
-        });
-
-        var moveListener = GoogleMaps.maps.runMap.instance.addListener('center_changed', function() {
-            infowindow.close();
-            home.setPosition(GoogleMaps.maps.runMap.instance.getCenter());
-        });
-
-        //set the initial location
-        origin = home;
 
         //Disable the accept run button as there are not yet any generated runs
         document.getElementById("directions_run").className = document.getElementById("directions_run").className + " disabled";
@@ -116,7 +110,7 @@ Template.newrun.onRendered(function(){
 
 window.onresize = function(e) {
     document.getElementById("map-container").style.height = window.innerHeight -$('#navbar').height() + 'px';
-}
+};
 
 Template.newrun.events({
     'change input[name=distance]': function (event) {
@@ -162,6 +156,7 @@ Template.newrun.events({
             Session.set('routeToSave', directionsResult);
         }
         else if (directionsResult != undefined){
+            Session.set('routeToSave', directionsResult);
             $('#saveRunModal').openModal();
         }
         else {
@@ -210,7 +205,6 @@ Template.newrun.helpers({
                 streetViewControl: false,
                 mapTypeControl: false,
                 rotateControl: false,
-                zoomControl: true,
                 draggable: true,
             };
         }
@@ -271,7 +265,6 @@ function destinationPoint(startPoint, brng, dist) {
 
 //get the total distance of the route
 function totalDistance(legsArray) {
-
     var result = 0;
     for(var i=0; i<legsArray.length; i++) {
         result += legsArray[i].distance.value;
@@ -294,15 +287,13 @@ function createRoute() {
 
     //build directions request
     var request = {
-        origin: origin.position.lat() + "," + origin.position.lng(),
-        destination: origin.position.lat() + "," + origin.position.lng(),
+        origin: home.position.lat() + "," + home.position.lng(),
+        destination: home.position.lat() + "," + home.position.lng(),
         waypoints: waypoints,
         optimizeWaypoints: true,
         travelMode: google.maps.DirectionsTravelMode.WALKING,
         avoidHighways: true
     };
-
-
 
     //get the route from the directions service
     directionsService.route(request, function (response, status) {
@@ -338,7 +329,6 @@ function createRoute() {
             }
         }
     });
-
 }
 
 /**
