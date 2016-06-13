@@ -23,12 +23,9 @@ Template.newrun.onCreated(function() {
         //Initialise the directions service and display service
         directionsService = new google.maps.DirectionsService();
         directionDisplay = new google.maps.DirectionsRenderer({
-            draggable: false,
             suppressMarkers: true
         });
         directionDisplay.setMap(GoogleMaps.maps.runMap.instance);
-
-        //Session.set('routeToSave', directionsResult);
         
         //Check if we are restoring an old run
         if(Session.get('oldRequest')!=null){
@@ -55,6 +52,9 @@ Template.newrun.onCreated(function() {
 
         //Create the "generate Map" button
         var genControl = new mapElements.genCtrl(controls, map, 'Generate new route', function () {
+            moveListener.remove();
+            console.log(map.instance.center_changed);
+            console.log(GoogleMaps.maps);
             infowindow.close();
             waypoints = [];
             directionDisplay.set('directions', null);
@@ -73,8 +73,12 @@ Template.newrun.onCreated(function() {
         var latLng = Geolocation.latLng();
         home = new google.maps.Marker({
             position: new google.maps.LatLng(latLng.lat, latLng.lng),
-            map: GoogleMaps.maps.runMap.instance,
-            label: "A"
+            map: GoogleMaps.maps.runMap.instance
+        });
+
+        var moveListener = GoogleMaps.maps.runMap.instance.addListener('center_changed', function() {
+            infowindow.close();
+            home.setPosition(GoogleMaps.maps.runMap.instance.getCenter());
         });
 
         //set the initial location
@@ -199,7 +203,8 @@ Template.newrun.helpers({
                 streetViewControl: false,
                 mapTypeControl: false,
                 rotateControl: false,
-                zoomControl: false
+                zoomControl: true,
+                draggable: true,
             };
         }
     },
