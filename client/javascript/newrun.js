@@ -202,10 +202,7 @@ Template.newrun.helpers({
             return {
                 center: new google.maps.LatLng(latLng.lat, latLng.lng),
                 zoom: 15,
-                streetViewControl: false,
-                mapTypeControl: false,
-                rotateControl: false,
-                draggable: true,
+                disableDefaultUI: true
             };
         }
     },
