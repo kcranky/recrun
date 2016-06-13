@@ -8,3 +8,29 @@ body, html{
     height:100%;
 }
 
+.loader{
+    position:fixed;
+    left:50%;
+    top:50%;
+    visibility:hidden;
+}
+
+.loading{
+    visibility:visible;
+}
+
+h1 a:link {
+    color: black;
+}
+
+h1 a:visited {
+    color: black;
+}
+
+h1 a:hover {
+    color: #67dbff;
+}
+
+h1 a:active {
+    color: black;
+}
