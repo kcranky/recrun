@@ -11,7 +11,8 @@ var waypoints = [],
     home,
     distance = 5,
     directionsResult,
-    infowindow;
+    infowindow,
+    drag;
 
 Template.newrun.onCreated(function() {
     loader.showLoader();
@@ -34,9 +35,20 @@ Template.newrun.onCreated(function() {
             map: GoogleMaps.maps.runMap.instance
         });
 
+        drag = false;
+
         var moveListener = GoogleMaps.maps.runMap.instance.addListener('drag', function() {
-            infowindow.close();
-            home.setPosition(GoogleMaps.maps.runMap.instance.getCenter());
+            if(drag){
+                if(directionsResult){
+                    directionDisplay.set('directions', null);
+                    directionsResult = null;
+                }
+                infowindow.close();
+                home.setPosition(GoogleMaps.maps.runMap.instance.getCenter());
+            }
+            else{
+                return;
+            }
         });
 
         //Check if we are restoring an old run
@@ -54,7 +66,7 @@ Template.newrun.onCreated(function() {
                         home.setPosition(new google.maps.LatLng(lat, lng));
                         infowindow.open(GoogleMaps.maps.runMap.instance, home);
                         Session.set('oldRequest', null);
-                        moveListener.remove();
+                        drag = false;
                     }
                 });
             }
@@ -68,7 +80,7 @@ Template.newrun.onCreated(function() {
 
         //Create the "generate Map" button
         var genControl = new mapElements.genCtrl(controls, map, 'Generate new route', function () {
-            moveListener.remove();
+            drag = false;
             infowindow.close();
             waypoints = [];
             directionDisplay.set('directions', null);
@@ -184,6 +196,11 @@ Template.newrun.events({
     'click #retry': function(){
         document.location.reload(true);
         Router.render('loading');
+    },
+    'click #my_location': function(event){
+        event.preventDefault();
+        drag = true;
+        Materialize.toast('Drag the map to change your location', 4000);
     }
 });
 

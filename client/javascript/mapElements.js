@@ -53,9 +53,9 @@ export function saveRoute(parentDiv, map) {
 
     var ul = document.createElement('ul');
     //share, blue, share this route
-    var btns = ['directions_run', 'save', 'settings']
-    var btnclrs = ['green', 'blue', 'red'];
-    var btntitles = ['Accept route', 'Save this route', "Route settings"]
+    var btns = ['my_location', 'directions_run', 'save', 'settings']
+    var btnclrs = ['purple', 'green', 'blue', 'red'];
+    var btntitles = ['Change your location', 'Accept route', 'Save this route', "Route settings"]
 
     for (var i=0; i<btns.length; i++){
         var li = document.createElement('li');
