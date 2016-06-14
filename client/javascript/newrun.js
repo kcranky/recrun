@@ -16,27 +16,33 @@ var waypoints = [],
 
 Template.newrun.onCreated(function() {
     loader.showLoader();
-    //Session.set('logInSave', false);
+    /**
+     * When the map is ready, do all the initialization
+     */
     GoogleMaps.ready('runMap', function(map) {
-        //Create info window to show distance
+
+        /**
+         * Initialise all the Google Map objects we'll be using
+         */
         infowindow = new google.maps.InfoWindow();
 
-        //Initialise the directions service and display service
         directionsService = new google.maps.DirectionsService();
+
         directionDisplay = new google.maps.DirectionsRenderer({
             suppressMarkers: true
         });
         directionDisplay.setMap(GoogleMaps.maps.runMap.instance);
 
-        //Initialize the marker
         var latLng = Geolocation.latLng();
         home = new google.maps.Marker({
             position: new google.maps.LatLng(latLng.lat, latLng.lng),
             map: GoogleMaps.maps.runMap.instance
         });
 
-        drag = false;
-
+        /**
+         * Called when Dragging the map
+         * Used for the user to change their location
+         */
         var moveListener = GoogleMaps.maps.runMap.instance.addListener('drag', function() {
             if(drag){
                 if(directionsResult){
@@ -50,8 +56,11 @@ Template.newrun.onCreated(function() {
                 return;
             }
         });
+        drag = false;
 
-        //Check if we are restoring an old run
+        /**
+         * Check if a user is restoring a previously saved route
+         */
         if(Session.get('oldRequest')!=null){
             if (GoogleMaps.loaded()) {
                 directionsService.route(Session.get('oldRequest'), function (response, status) {
@@ -75,7 +84,9 @@ Template.newrun.onCreated(function() {
             directionsResult = null;
         }
 
-        //add custom elements
+        /**
+         * Add the elements to the map.
+         */
         let controls = document.createElement('div');
 
         //Create the "generate Map" button
@@ -125,6 +136,13 @@ window.onresize = function(e) {
 };
 
 Template.newrun.events({
+    /**
+     * For the user to change their distance
+     * @param event
+     */
+    'click #settings': function () {
+        $('#distanceSelectModal').openModal();
+    },
     'change input[name=distance]': function (event) {
        event.preventDefault();
        if (event.target.value > 0){
@@ -135,6 +153,34 @@ Template.newrun.events({
            Materialize.toast('Route must be at least 1km', 4000);
        }
     },
+    /**
+     * Checks if there is a route to save. If so, opens the modal
+     * If not, tells the user to generate a route
+     * If route generated, ensures user is logged in
+     */
+    'click #save': function () {
+        event.preventDefault();
+        if(directionsResult == null){
+            Materialize.toast("Generate a route to save", 4000);
+            return;
+        }
+        if(!Meteor.userId()){
+            Router.go('/login');
+            Session.set('logInSave', true);
+            Session.set('routeToSave', directionsResult);
+        }
+        else if (directionsResult != undefined){
+            Session.set('routeToSave', directionsResult);
+            $('#saveRunModal').openModal();
+        }
+        else {
+            Materialize.toast("Generate a route to save", 4000);
+        }
+    },
+    /**
+     * When the user clicks the save button in the modal
+     * @param event
+     */
     'click #saveRunBtn': function(event) {
         event.preventDefault();
         var saveObj = {
@@ -156,35 +202,13 @@ Template.newrun.events({
             }
         });
     },
-    'click #save': function () {
-        event.preventDefault();
-        if(directionsResult == null){
-            Materialize.toast("Generate a route to save", 4000);
-            return;
-        }
-        if(!Meteor.userId()){
-            Router.go('/login');
-            Session.set('logInSave', true);
-            Session.set('routeToSave', directionsResult);
-        }
-        else if (directionsResult != undefined){
-            Session.set('routeToSave', directionsResult);
-            $('#saveRunModal').openModal();
-        }
-        else {
-            Materialize.toast("Generate a route to save", 4000);
-        }
-    },
-    'click #settings': function () {
-        $('#distanceSelectModal').openModal();
-    },
+    /**
+     * Creates a string and opens up the appropriate map client with the generated route
+     */
     'click #directions_run': function(){
         event.preventDefault();
-        //add run to DB of completed runs
-        //not sure whether to do this now or later...?
-        //move to directions guide
         if(Meteor.isCordova){
-            //create the intent
+
             let str = "http://maps.google.com/maps?f=d&source=s_d&saddr=" + strOut(directionsResult.request);
             cordova.InAppBrowser.open(str, '_system');
         }
@@ -193,10 +217,16 @@ Template.newrun.events({
             window.open(str);
         }
     },
+    /**
+     * If maps times out, or there is an error, we reload the page
+     */
     'click #retry': function(){
         document.location.reload(true);
         Router.render('loading');
     },
+    /**
+     * Enabled the drag map functionality for a user to change their location
+     */
     'click #my_location': function(event){
         event.preventDefault();
         drag = true;
@@ -205,13 +235,24 @@ Template.newrun.events({
 });
 
 Template.newrun.helpers({
+    /**
+     * Returns the distance the user selects in the modal
+     */
     distance: function () {
         return distance;
     },
+    /**
+     * Returns the geolocation error
+     * @returns {*|PositionError|string}
+     */
     geolocationError: function() {
         var error = Geolocation.error();
         return error && error.message
     },
+    /**
+     * Options used to initialize the map object
+     * @returns {{center: google.maps.LatLng, zoom: number, disableDefaultUI: boolean}}
+     */
     runMapOptions: function() {
         var latLng = Geolocation.latLng();
         // Make sure the maps API has loaded and we have our location
@@ -223,6 +264,9 @@ Template.newrun.helpers({
             };
         }
     },
+    /**
+     * Returns whether or not the map object has laoded
+     */
     mapReady: function(){
         return GoogleMaps.loaded();
     }
@@ -286,6 +330,9 @@ function totalDistance(legsArray) {
     return result;
 }
 
+/**
+ * Generates a new route based on all user input
+ */
 function createRoute() {
     loader.showLoader();
     directionDisplay.set('directions', null);
