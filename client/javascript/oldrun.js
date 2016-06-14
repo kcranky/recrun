@@ -5,11 +5,11 @@ import { Routes } from './../dbSetup.js';
 
 Meteor.subscribe('Routes');
 
-Template.oldrun.onCreated(function bodyOnCreated(){
+Template.oldroutes.onCreated(function bodyOnCreated(){
     this.state = new ReactiveDict();
 });
 
-Template.oldrun.events({
+Template.oldroutes.events({
     'click .useRoute': function (){
         Session.set('oldRequest', this.request);
     },
@@ -24,7 +24,7 @@ Template.oldrun.events({
 });
 
 
-Template.oldrun.helpers({
+Template.oldroutes.helpers({
     runs(){
        return Routes.find();
     }

@@ -18,10 +18,10 @@ Router.route('/', function() {
         }
 });
 
-Router.route('/oldrun', function() {
-        this.render('oldrun')
+Router.route('/oldroutes', function() {
+        this.render('oldroutes')
     }, {
-        name:'oldrun',
+        name:'oldroutes',
         onBeforeAction: function() {
             if (!Meteor.userId()){
                 Router.go('login');
