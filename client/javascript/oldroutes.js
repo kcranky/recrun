@@ -1,4 +1,4 @@
-import './../templates/oldrun.html';
+import '../templates/oldroutes.html';
 import { Meteor } from 'meteor/meteor';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import { Routes } from './../dbSetup.js';

@@ -193,7 +193,7 @@ Template.newrun.events({
         Meteor.call('saveRun', saveObj, function(e, r){
             if (!e){
                 Materialize.toast("Run successfully saved!", 4000);
-                Router.go('/oldrun');
+                Router.go('/oldroutes');
                 Session.set('logInSave', false);
                 Session.set('routeToSave', null);
             }
